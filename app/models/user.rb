@@ -16,6 +16,12 @@ class User < ApplicationRecord
   end
 
   ################  SIGN IN PHONE NUMBR OR EMAIL  ###########################
+ROLE_NAME   = ["Choisissez votre Role", "City manager", "Marketing", "Head of City Manager", "Content", "Head of Content", "Super prof"]
+  
+  CITY_NAME   = ["Choisissez votre ville","Tiassalé", "N'Douci","Agboville","Abidjan", "Hermankono", "Divo", "Odienné", "Duékoué", "Danané", "Tingréla", "Bouaké", "Daloa", "Yamoussoukro", "San-Pédro", "Abengourou", "Man", "Gagnoa", "Katiola",
+    "Korhogo", "Dabou", "Divo","Grand-Bassam", "Bouaflé", "Issia", "Sinfra",  "Abengourou" ,"Soubré", 
+    "Adzopé", "Séguéla", "Bondoukou", "Oumé", "Ferkessedougou", "Dimbokro",
+    "Guiglo", "Boundiali", "Agnibilékrou", "Daoukro", "Vavoua", "Zuénoula", "Toumodi", "Akoupé", "Lakota", "Autres villes"]
 
 
 def logged

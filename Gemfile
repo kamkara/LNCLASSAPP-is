@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap', '~> 5.1.0'
+gem 'bootstrap_form', '~> 4.5'
 gem 'jquery-rails'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 

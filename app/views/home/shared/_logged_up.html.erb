@@ -1,0 +1,71 @@
+
+<%= content_for @title=" Inscription Eleves" %>
+<div class="container" id="wrap">
+
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <span class="items-center">
+                <legend>Inscription</legend>
+                <h4 class="font-semibold mb-2">Inscrivez-vous gratuitement, Abonnez-vous après.</h4>
+            </span>
+            
+            <small class="">
+                Si tu es pas déja inscrit(e) sur la plateforme, cliquez <%= link_to "Sur se Connecter", new_user_session_path, class:"text-blue-400 underline font-bold-200 " %>
+            </small>
+            <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="row">
+                    <!-- User first and last name-->
+                    <div class="col-xs-6 col-md-6 my-1">
+                       <%= f.text_field :username, hide_label: true, class:"block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent ",
+						placeholder:"Nom...", autofocus: true %>
+                    </div>
+                    <div class="col-xs-6 col-md-6 my-1">
+                        <%= f.text_field :username, hide_label: true, class:"block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent ",
+										placeholder:"Prénom... " %>
+                    </div>
+                </div>
+
+				<!-- Matricule-->
+							<%= f.text_field :matricule, hide_label: true,
+								class:"block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent ",
+								placeholder:"Matricule national... " %>
+							<!-- contact-->
+							<%= f.text_field :contact, hide_label: true,
+								class:"block w-full mt-2 p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent ",
+								placeholder:"N° téléphone 10 chriffres... ", id:"phone_contact" %>
+            
+                <div class="row my-2">
+                    <!-- User first and last name-->
+					<%= f.select :city, User::CITY_NAME, label: "Ville:", label_class:"font-semibold",
+												wrapper: {class:"md:w-1/2 block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent"},
+												placeholder:"choissez votre vile:", help:"Cliquez pour choisir la ville" %>
+					
+                
+                <!-- contact-->
+            </div>          
+               <div class="relative">
+                                <!-- password section-->
+								<input type="password" name="user[password]" id="user_password"
+									:type="togglePassword ? 'text' : 'password'"
+									@keydown="checkPasswordStrength()"
+									x-model="password"
+									class="w-full mt-2 p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent"
+									placeholder="ton mot de passe...(8 caracteres min)">
+
+								
+							</div>
+              <%= f.hidden_field :role, value:"Student" %>
+              
+
+               <p class="mt-4"> <span class="font-semibold underline">Attention:</span> Les sujets et corrigés doivent etre traiter avant les examens, 
+               lnclass n'est pas complice si vous partez avec en salle d'examens.</p> <br>
+               <small>Cliquez sur <span class="bold">Terminer l'inscription</span> pour enregistrer votre inscription.</small>
+                <div class="actions mt-2">
+                    <%= f.submit "Terminer l'inscription", class:"btn btn-lg btn-primary btn-block signup-btn" %>
+                </div>
+            <% end %>
+
+        </div>
+    </div>
+</div>
