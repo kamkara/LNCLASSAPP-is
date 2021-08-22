@@ -26,6 +26,10 @@ gem 'bootstrap', '~> 5.1.0'
 gem 'jquery-rails'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
+###############  MEMBERSHIP#########################
+gem 'devise', '~> 4.8'
+
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
