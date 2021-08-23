@@ -6,7 +6,7 @@
   <!-- signed section start -->
   <div class="flex justify-end items-center">
     <div class="flex mt-2">
-      
+      <%= link_to 'Se Connecter', root_path, class:"bg-blue-500 text-white px-6 py-2 rounded font-bold mx-3 hover:bg-blue-600 transition duration-200 each-in-out" %>
     </div>
   </div>
 
@@ -23,11 +23,15 @@
       </h3>
     </div>
     <div class="hidden sm:block opacity-50 z-0">
-      <div class="shadow-2xl w-96 h-96 rounded-full -mt-72"></div>
+      <div class="shadow-2xl w-96 h-96 rounded-full -mt-72">
+      </div>
       <div class="shadow-xl w-80 h-80 rounded-full ml-8 -mt-96"></div>
     </div>
     <!-- Litteratures -->
     <div class="text-white relative">
+    <div class="mb-8">
+      <%= link_to "S'Inscrire au programme", root_path, class:"bg-red-500 text-white px-4 py-4 rounded font-bold mx-3 hover:bg-red-600 transition duration-200 each-in-out" %>
+    </div>
       <h3 class="text-uppercase font-semibold ">Les matières littéraire </h3>
       <div class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-1 sm:gap-5 uppercase">
         <div class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-3 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition">
@@ -105,9 +109,10 @@
       </div>
 
     <!-- signed section start -->
-    <div class=" relative my-2 mt-8">
-     <button type="button" class="bg-blue-500 text-white px-6 py-2 rounded font-medium mx-3 hover:bg-blue-600 transition duration-200 each-in-out">S'Inscrire</button>
-     <button type="button" class="bg-red-500 text-white px-6 py-2 rounded font-medium mx-3 hover:bg-red-600 transition duration-200 each-in-out">Se Connecter</button>
+    <div class=" relative my-6 mt-8">
+    <%= link_to 'Se Connecter', root_path, class:"py-2 bg-blue-500 text-white px-6 py-2 rounded font-medium mx-3 hover:bg-blue-600 transition duration-200 each-in-out" %>
+    <%= link_to "S'Inscrire au Programme", root_path, class:"py-2 bg-red-500 text-white px-6 py-2 rounded font-medium mx-3 hover:bg-red-600 transition duration-200 each-in-out" %>
+     
     </div>
     </div>
 
