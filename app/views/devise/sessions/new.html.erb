@@ -1,54 +1,48 @@
-<h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-
 
 <!-- component -->
-<div class="min-h-screen bg-purple-400 flex justify-center items-center">
-  <div class="absolute w-60 h-60 rounded-xl bg-purple-300 -top-5 -left-16 z-0 transform rotate-45 hidden md:block"></div>
-  <div class="absolute w-48 h-48 rounded-xl bg-purple-300 -bottom-6 -right-10 transform rotate-12 hidden md:block"></div>
-  <div class="py-12 px-12 bg-white rounded-2xl shadow-xl z-20">
-    <div>
-      <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">Create An Account</h1>
-      <p class="w-80 text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide cursor-pointer">Create an account to enjoy all the services without any ads for free!</p>
-    </div>
-    <div class="space-y-4">
-      <input type="text" placeholder="Email Addres" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" />
-      <input type="text" placeholder="Password" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" />
-    </div>
-    <div class="text-center mt-6">
-      <button class="py-3 w-64 text-xl text-white bg-purple-400 rounded-2xl">Create Account</button>
-      <p class="mt-4 text-sm">Already Have An Account? <span class="underline cursor-pointer"> Sign In</span></p>
+
+<div class="h-screen bg-white flex flex-col space-y-10 justify-center items-center">
+ 
+  <!-- lnclass logo -->
+ <div class=" flex w-96 ">
+    <%= image_tag 'lnclass-logo.png', class:"", alt:'Lnclass logo', title:"lnclass logo", size:"150x150" %>
+ </div>
+
+  <!-- Layout  -->
+  <div class="bg-white w-96 shadow-xl rounded p-2">
+    <h1 class="text-3xl font-medium">Se Connecter</h1>
+    <p class="text-sm">Se connecter pour accéder aux contenus. <br>
+     Tu dois etre déja inscrit(e) au par-avant.
+     </p>
+    <div class="space-y-5 mt-2">
+      <%= f.text_field :logged, class:"w-full h-12 border border-gray-800 rounded px-3",placeholder:"Matricule ou Email"  %>
+     <div class="w-full flex items-center  border border-gray-800 rounded px-3 my-2">
+        <%= f.password_field :password ,class:"w-4/5 h-12", placeholder:"Mot de passe ou Contact" %>
+        <span class="text-blue-700 hover:bg-blue-400 rounded-full px-3 ">afficher</span>
+      </div>
+
+      <div class="">
+                  <a href="#!" class="font-medium text-blue-700 hover:bg-blue-300 rounded-full p-2">Mot de passe oublié ?</a>
+      </div>
+
+      <button class="text-center w-full bg-blue-700 rounded-full text-white py-3 font-medium">Se Connecter</button>
+
     </div>
   </div>
-  <div class="w-40 h-40 absolute bg-purple-300 rounded-full top-0 right-12 hidden md:block"></div>
-  <div class="w-20 h-40 absolute bg-purple-300 rounded-full bottom-20 left-10 transform rotate-45 hidden md:block"></div>
+
+  <!-- Footer -->
+  <p>Nouveau sur LnClass ? <%= link_to  "S'Inscrire", new_user_registration_path, class:"text-blue-700 font-medium" %>  </p>
 </div>
-<form>
-  <div class="mb-3">
 
 
+<!-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
+<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
+    <div>
+        <a title="Problème sur la connexion" href="https://wa.me/2250759977903" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+            <i class="fas fa-phone-volume  object-center w-full h-full rounded"></i>
+        </a>
+    </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
