@@ -38,7 +38,9 @@ ActiveRecord::Schema.define(version: 2021_08_22_170031) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "full_name"
     t.string "matricule", default: "", null: false
     t.string "city"
     t.string "school_name"
@@ -47,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_08_22_170031) do
     t.string "gender"
     t.string "contact", default: "", null: false
     t.string "role", default: "student"
-    t.string "status_payment"
+    t.string "ref_payment"
     t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

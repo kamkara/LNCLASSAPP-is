@@ -31,7 +31,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-      t.string :username      #fullName
+      t.string :first_name      #fullName
+      t.string :last_name      #fullName
+      t.string :full_name      #fullName
       t.string :matricule, unique: true, null: false, default: ""    #matricule
       t.string :city          #City
       t.string :school_name   #School
@@ -40,7 +42,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :gender        #F or M
       t.string :contact , unique: true, null: false, default: ""       #10 digits
       t.string :role,  default: :student #role
-      t.string :status_payment    #abonner ou non abonner
+      t.string :ref_payment, unique: true    #abonner ou non abonner
       t.string :slug 
 
       t.timestamps null: false

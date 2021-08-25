@@ -4,12 +4,16 @@ class ApplicationController < ActionController::Base
 protected
     # If you have extra params to permit, append them to the sanitizer.
     def configure_permitted_parameters
-    sign_up_params_step_1 = [ :username, :matricule, :contact, :city, :role, :email, :password, :slug]
-    sign_up_params_step_2 = [ :serie_bac, :status_bac, :school, :school_name, :gender,  :status_payment]
+    sign_up_params = [ :first_name, :last_name, :full_name, :matricule, :contact, :city, :role, :email, :password, :slug, :serie_bac, :status_bac, :school, :school_name, :gender,  :status_payment]
     
-      devise_parameter_sanitizer.permit :sign_up, keys: sign_up_params_step_1
-      devise_parameter_sanitizer.permit :account_update, keys: sign_up_params_step_2
+      devise_parameter_sanitizer.permit :sign_up, keys: sign_up_params
+      devise_parameter_sanitizer.permit :account_update, keys: sign_up_params
       devise_parameter_sanitizer.permit :sign_in, keys: [:logged, :password]
-    end   
+    end  
+
+
+  def after_sign_up_path_for(resource)
+    '/feed_path' # Or :prefix_to_your_route
+  end
 
 end

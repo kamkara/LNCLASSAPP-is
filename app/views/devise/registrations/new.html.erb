@@ -1,30 +1,115 @@
-<h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  
+<!-- component -->
+<div class="w-full mx-auto max-w-3xl p-6 ">
+ 
+        <!-- title message -->
+        <div class="bg-white max-w mx-auto rounded-2xl  border-b-4 border-red-500 overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
+            <div class="h-20 bg-red-500 flex items-center ">
+                <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">Juste 2min </h1>
+                <p class=" text-white text-base ml-4 uppercase"> 
+                    Inscription au prépa
+                </p>
+            </div>
+        <div class="py-6 px-6 text-lg tracking-wide text-center">
+            <div class="">
+                <div class='flex flex-wrap -mx-3 mb-6'>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                  <!-- Info personnel-->
+                  <div class="personal w-full  pt-4">
+                        <h2 class="text-2xl text-gray-900 border-b  border-gray-400">Remplir les informations personnelles:</h2>
+                        <div class="flex items-center justify-between mt-4">
+                            <div class='w-full md:w-1/2 px-3 mb-6'>
+                              <%= f.text_field :first_name, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"Nom" %>
+                            </div>
+                            <div class='w-full md:w-1/2 px-3 mb-6'>
+                             <%= f.text_field :last_name, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"Prenom" %> 
+                            </div>
+                        </div>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                           <%= f.text_field :city, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"la ville de frequentation" %>
+                        </div>
+                        <div class="flex items-center justify-between mt-4">
+                            <div class='w-full md:w-1/2 px-3 mb-6'>
+                               <%= f.text_field :matricule, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"Matricule.." %>
+                            </div>
+                            <div class='w-full md:w-1/2 px-3 mb-6'>
+                              <%= f.text_field :contact, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"N° Tel N° WhatsApp.." %>
+                            </div>
+                        </div>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                           <%= f.text_field :school_name, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"l'ecole de frequentation" %>
+                        </div>
+                        <div class="flex items-center justify-between mt-4">
+                            <div class='w-full md:w-1/2 px-3 mb-6'>
+                               <%= f.text_field :matricule, class:"w-full  text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:" N° Matricule ..." %>
+                            </div>
+                            <div class='w-full md:w-1/2 px-3 mb-6'>
+                              <%= f.phone_field :contact, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:" N° Tel ou N° WhatsApp ..." %>
+                            </div>
+                        </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  <br><br><br><br>
-  <%= render "registrations/sign_up" %>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+                        <!-- component -->
+                        <div class="w-full px-3 mb-2">
+                        <div class="control border-b border-gray-500 py-3 px-5 text-sm font-semibold mr-3">je suis en série</div>
+                        <label class="flex radio p-1 cursor-pointer">
+                            <%= f.radio_button :serie_bac, :A1, class:"my-auto transform scale-125"%>
+                            <div class="title px-2">en A1</div>
+                        </label>
+
+                        <label class="flex radio p-1 cursor-pointer">
+                            <%= f.radio_button :serie_bac, :A2, class:"my-auto transform scale-125"%>
+                            <div class="title px-2"> en A2</div>
+                        </label>
+
+                        <label class="flex radio p-1 cursor-pointer">
+                            <%= f.radio_button :serie_bac, :D, class:"my-auto transform scale-125"%>
+                            <div class="title px-2">en D</div>
+                        </label>
+
+                        </div>
+                        <div class="w-full px-3 mb-2">
+                            <div class=" border-b border-gray-500 py-3 px-5 text-sm font-semibold mr-3">Es-tu Nouveau candidat</div>
+                                <label class="flex radio p-1 cursor-pointer">
+                                    <%= f.radio_button :status_bac, :Non_Boublant, class:"my-auto transform scale-125"%>
+                                    <div class="title px-2">1ere année au BAC</div>
+                                </label>
+
+                                <label class="flex radio p-1 cursor-pointer">
+                                    <%= f.radio_button :status_bac, :Doublant, class:"my-auto transform scale-125"%>
+                                    <div class="title px-2"> 2e Fois au BAC</div>
+                                </label>
+                                <label class="flex radio p-1 cursor-pointer">
+                                    <%= f.radio_button :status_bac, :Doublant_3x, class:"my-auto transform scale-125"%>
+                                    <div class="title px-2">+ 2e Fois au BAC</div>
+                                </label>
+                            </div>
+                        </div>                   
+                        <div class="w-full px-3 mb-2">
+                            <div class=" border-b border-gray-500 py-3 px-5 text-sm font-semibold mr-3">Je suis </div>
+                                <label class="flex radio p-1 cursor-pointer">
+                                    <%= f.radio_button :gender, :Femme, class:"my-auto transform scale-125"%>
+                                    <div class="title px-2">Une Femme</div>
+                                </label>
+
+                                <label class="flex radio p-1 cursor-pointer">
+                                    <%= f.radio_button :gender, :Homme, class:"my-auto transform scale-125"%>
+                                    <div class="title px-2"> Un Homme</div>
+                                </label>
+                            </div>
+                        </div>                   
+                    </div>
+
+                    <!-- <hr > -->
+        <div class="flex justify-center px-5 mb-2 text-sm ">
+        <%= f.submit "Terminer Inscription", disable_with: 'Submiting...', class:"border bg-red-500 font-semibold text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-green-600 focus:outline-none focus:shadow-outline" %>
+
+        </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
