@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :levels
   get 'feed/index'
   get 'demo/index'
   devise_for :users
