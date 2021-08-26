@@ -31,6 +31,9 @@
                         <div class='w-full md:w-full px-3 mb-6'>
                            <%= f.text_field :city, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"la ville de frequentation" %>
                         </div>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                           <%= f.text_field :school_name, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"l'ecole de frequentation" %>
+                        </div>
                         <div class="flex items-center justify-between mt-4">
                             <div class='w-full md:w-1/2 px-3 mb-6'>
                                <%= f.text_field :matricule, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"Matricule.." %>
@@ -39,18 +42,8 @@
                               <%= f.text_field :contact, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"N° Tel N° WhatsApp.." %>
                             </div>
                         </div>
-                        <div class='w-full md:w-full px-3 mb-6'>
-                           <%= f.text_field :school_name, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:"l'ecole de frequentation" %>
-                        </div>
-                        <div class="flex items-center justify-between mt-4">
-                            <div class='w-full md:w-1/2 px-3 mb-6'>
-                               <%= f.text_field :matricule, class:"w-full  text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:" N° Matricule ..." %>
-                            </div>
-                            <div class='w-full md:w-1/2 px-3 mb-6'>
-                              <%= f.phone_field :contact, class:"w-full text-base py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400", placeholder:" N° Tel ou N° WhatsApp ..." %>
-                            </div>
-                        </div>
-
+                        <%= f.hidden_field :role, value:"Student" %>
+                        
 
                         <!-- component -->
                         <div class="w-full px-3 mb-2">
