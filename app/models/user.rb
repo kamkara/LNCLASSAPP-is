@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:logged]
 
-  
+  has_many :levels
   attr_writer :logged
   ################## VALIDATES  ###############
   validates :first_name, :last_name, :full_name, :matricule, :email, :contact, :role,  presence: true

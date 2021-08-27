@@ -1,4 +1,5 @@
 class LevelsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_level, only: %i[ show edit update destroy ]
 
   # GET /levels or /levels.json
@@ -21,7 +22,7 @@ class LevelsController < ApplicationController
 
   # POST /levels or /levels.json
   def create
-    @level = Level.new(level_params)
+    @level = current_user.levels.build(level_params)
 
     respond_to do |format|
       if @level.save
@@ -59,7 +60,7 @@ class LevelsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_level
-      @level = Level.find(params[:id])
+      @level = Level.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
