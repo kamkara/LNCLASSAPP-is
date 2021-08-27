@@ -4,8 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:logged]
 
-
-    
   ###############  RELATIONS    ################## 
   #has_many :courses
   has_many :materials
@@ -13,6 +11,7 @@ class User < ApplicationRecord
   #has_many :posts
   #has_many :messages
   
+
   attr_writer :logged
   ################## VALIDATES  ###############
   validates :first_name, :last_name, :full_name, :matricule, :email, :contact, :role,  presence: true
