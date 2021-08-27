@@ -4,6 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:logged]
 
+
+    
+  ###############  RELATIONS    ################## 
+  #has_many :courses
+  has_many :materials
+  #has_many :levels  
+  #has_many :posts
+  #has_many :messages
   
   attr_writer :logged
   ################## VALIDATES  ###############

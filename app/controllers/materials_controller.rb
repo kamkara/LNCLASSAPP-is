@@ -1,4 +1,5 @@
 class MaterialsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_material, only: %i[ show edit update destroy ]
 
   # GET /materials or /materials.json
@@ -8,6 +9,8 @@ class MaterialsController < ApplicationController
 
   # GET /materials/1 or /materials/1.json
   def show
+    @materials = Material.all
+    #@courses = Course.where('material_id = ?', @material.id)
   end
 
   # GET /materials/new
@@ -21,7 +24,7 @@ class MaterialsController < ApplicationController
 
   # POST /materials or /materials.json
   def create
-    @material = Material.new(material_params)
+    @material = current_user.materials.build(material_params)
 
     respond_to do |format|
       if @material.save
@@ -59,7 +62,7 @@ class MaterialsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_material
-      @material = Material.find(params[:id])
+      @material = Material.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
