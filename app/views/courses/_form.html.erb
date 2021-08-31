@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_with(model: course) do |form| %>
   <% if course.errors.any? %>
     <div id="error_explanation">
@@ -16,32 +17,41 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="field my-2">
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
 
-  <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug %>
-  </div>
 
-  <div class="field">
-    <%= form.label :level_id %>
-    <%= form.text_field :level_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :material_id %>
-    <%= form.text_field :material_id %>
-  </div>
+  <div class="row my-2">
+      <div class="col-5  col-md-3 col-lg-3">
+        <div class="input-form">
+          <span class="select">
+            <%= form.select :material_id,
+              @materials.map { |m| [m.title, m.id] },
+              placeholder:"la matiere",
+               hide_label: true, class:"bg-red-200" %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+          </span>
+        </div>
+      </div>
+      <div class="col-5 col-md-3 col-lg-3">
+        <div class="input-form">
+          <span class="select">
+            <%= form.select :level_id,
+              @levels.map { |l| [l.title, l.id] },
+              placeholder:"Niveau",
+               hide_label: true %>
+          </span>
+        </div>
+      </div>
+    </div>
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit " creer le cours", class:" btn btn-primary p-1" %>
   </div>
 <% end %>
+
+</div>

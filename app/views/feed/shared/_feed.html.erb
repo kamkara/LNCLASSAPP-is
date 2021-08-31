@@ -1,7 +1,11 @@
 <div class="flex flex-col w-full h-full text-gray-900 text-xl border-2 border-gray-900">
-    <div class="flex w-full max-w-xl h-60 items-center justify-center mx-auto bg-green-400 border-b border-gray-600">Post</div>
-    <div class="flex w-full max-w-xl h-60 items-center justify-center mx-auto bg-green-400 border-b border-gray-600">Post</div>
-    <div class="flex w-full max-w-xl h-60 items-center justify-center mx-auto bg-green-400 border-b border-gray-600">Post</div>
-    <div class="flex w-full max-w-xl h-60 items-center justify-center mx-auto bg-green-400 border-b border-gray-600">Post</div>
-    <div class="flex w-full max-w-xl h-60 items-center justify-center mx-auto bg-green-400 border-b border-gray-600">Post</div>
+    <% @courses.each do |course| %>
+    <div class="flex w-full  h-60  justify-center mx-auto bg-green-400 border-b border-gray-600">
+    <%= course.title %>
+    <br>
+    <%= course.content %>
+    </div>
+    
+    <% end %>
+    
 </div>

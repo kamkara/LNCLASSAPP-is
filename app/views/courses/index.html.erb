@@ -2,7 +2,7 @@
 
 <h1>Courses</h1>
 
-<table>
+<table class="container">
   <thead>
     <tr>
       <th>Title</th>
@@ -15,9 +15,9 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody  >
     <% @courses.each do |course| %>
-      <tr>
+      <tr class="my-4 ">
         <td><%= course.title %></td>
         <td><%= course.content %></td>
         <td><%= course.slug %></td>
