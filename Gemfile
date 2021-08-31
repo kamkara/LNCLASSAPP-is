@@ -33,9 +33,12 @@ gem 'jquery-rails'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-#gem 'gemoji', '~> 3.0', '>= 3.0.1'
 #
-###############  MEMBERSHIP#########################
+###############  EDITOR #########################
+#gem 'gemoji', '~> 3.0', '>= 3.0.1'
+
+
+###############  MEMBERSHIP #########################
 gem 'devise', '~> 4.8'
 
 

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'espace/index'
-  get 'espace/dashboard'
-  get 'espace/audition'
-  get 'admin/audition'
+  get 'admin/table'
+  get 'admin/create'
   get 'admin/index'
   get 'admin/dashboard'
   resources :courses

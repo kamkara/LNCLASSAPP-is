@@ -1,10 +1,14 @@
 class AdminController < ApplicationController
-  def audition
+  
+  def create
   end
   def index
   end
   
   def dashboard
+
+  end
+  def table
 
   end
 
