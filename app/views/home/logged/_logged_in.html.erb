@@ -1,0 +1,30 @@
+<!-- component -->
+<div class="flex h-screen ">
+  <div class="flex-1 flex flex-col overflow-hidden">
+    <header class="flex justify-between items-center bg-blue-300 p-4 ">
+      <div class="flex">Left</div>
+      <div class="flex">Right</div>
+      
+      <div class="flex">
+      <%= link_to 'Admin', admin_index_path, class:'bg-gray-400 py-2 px-2  font-bold' %>
+      </div>
+    </header>
+      
+    <div class="flex h-full md:mx-24">
+        <nav class="flex w-72 h-full ">
+          <div class="w-full flex mx-auto px-6 py-8">
+            <%= render "home/shared-feed/sidebar" %> 
+          </div>
+        </nav>
+        <main class="flex flex-col w-full bg-white overflow-x-hidden overflow-y-auto mb-14">
+          <div class="flex w-full mx-auto px-6 py-8">
+            <%= render "home/shared-feed/feed" %>
+          </div>
+        </main>
+        <nav class="flex w-72 h-full ">
+          <%= render "home/shared-feed/better_feed" %>
+        </nav>
+      
+    </div>
+  </div>
+</div>

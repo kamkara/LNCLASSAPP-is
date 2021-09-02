@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :schools
+  resources :cities
+  resources :materials
+  resources :levels
   get 'admin/table'
   get 'admin/create'
   get 'admin/index'

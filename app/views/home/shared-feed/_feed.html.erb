@@ -1,0 +1,14 @@
+<div class="flex flex-col w-full h-full text-xl">
+    <% @courses.each do |course| %>
+        <div class=" w-full  justify-center mx-auto border-2 border-gray-400 border-rounded ">
+            <div class="flex w-full font-semibold m-2">
+                <%= course.title %>
+            </div>
+            <br>
+            <div class="container">
+                <%= course.content %>
+            </div>
+        </div>
+        <div class="my-2"></div>
+    <% end %>
+</div>

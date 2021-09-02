@@ -1,0 +1,39 @@
+<!-- component -->
+<div class="h-screen bg-white flex flex-col space-y-10 justify-center items-center">
+ 
+  <!-- linkedin logo -->
+ <div class=" flex w-96 ">
+    <svg class="w-32  " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 84 21" preserveAspectRatio="xMinYMin meet" version="1.1" focusable="false" class="lazy-loaded">
+      <%= image_tag 'lnclass-logo.png', class:"", alt:"Lnclass" %>
+      
+    </svg>
+ </div>
+
+  <!-- Layout  -->
+  <div class="bg-white w-96 shadow-xl rounded p-5">
+    <h1 class="text-3xl font-medium">Se Connecter</h1>
+    <p class="text-sm">Connectez-vous pour debuter votre apprentissage</p>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|  %>
+    <div class="space-y-5 mt-5">
+      <%= f.text_field :logged, class:"w-full h-12 border border-gray-700 hover:border-blue-500 rounded px-3", placeholder:"N° Matricule" %>
+      
+     <div class="w-full flex items-center  border border-gray-700 focus:border-blue-500 rounded">
+        <%= f.password_field :password,  class:" h-12 hover:border-blue-500 focus:border-blue-500",  placeholder:"N° WhatsApp ou Mot de passe" %>        
+      </div>
+
+      <div class="">
+            <a href="#!" class="font-medium text-blue-700 hover:bg-blue-300 rounded-full p-2">Mot de passe oublié ?</a>
+      </div>
+      <%= f.submit "Se Connecter", disable_with: 'Se Connexion encours...', class:"text-center w-full bg-blue-700 rounded-full text-white py-3 font-medium" %>
+      
+    </div>
+    
+    <% end %>
+    
+  </div>
+
+  <!-- Footer -->
+  <p>Nouveau sur Lnclass ? <a href="#!" class="text-blue-700 font-medium">S’inscrire</a>  </p>
+</div>
+
