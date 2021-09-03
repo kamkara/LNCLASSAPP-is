@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
 
   attr_writer :logged
+  attr_writer :custom_slug
   ################## VALIDATES  ###############
   validates :first_name, :last_name, :full_name, :matricule, :email, :contact, :role,  presence: true
   validates :full_name,  length: { minimum:5 }
@@ -14,25 +15,25 @@ class User < ApplicationRecord
 
 
  ############# customize fields###############"" 
-def email
-  self.email = "#{self.matricule}@gmail.com"
+def generate_pwd_and_email
+  #if self.role == "student"
+    self.email = "#{self.matricule}@gmail.com"
+    self.password = "#{self.contact}"
+  #end
 end
 
-  def password
-   self.password = "#{self.contact}" 
-  end
 
   
   def full_name
     self.full_name = "#{self.first_name} #{self.last_name}"
   end
-  def slug
-    self.slug = self.full_name
+  def custom_slug
+    "#{self.full_name_name} from #{self.school_name}"
   end
 
      ################## SLUG ###############
   extend FriendlyId
-    friendly_id :full_name, use: :slugged
+    friendly_id :custom_slug, use: :slugged
 
   def should_generate_new_friendly_id?
     full_name_changed?
