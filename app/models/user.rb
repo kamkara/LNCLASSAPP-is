@@ -2,9 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         authentication_keys: [:logged]#, :encryptable
-
+         :recoverable, :rememberable, :validatable, authentication_keys: [:logged]
 
   ###############  RELATIONS    ################## 
   #has_many :courses
@@ -15,28 +13,29 @@ class User < ApplicationRecord
   
 
   attr_writer :logged
+  attr_writer :custom_slug
   ################## VALIDATES  ###############
-  validates :first_name, :last_name, :full_name, :matricule, :email, :contact, :role,  presence: true
+  validates :first_name, :last_name, :full_name, :matricule, :email, :password, :contact, :role,  presence: true
   validates :full_name,  length: { minimum:5 }
   validates :contact,  length: { minimum:10 }
   validates :matricule,  length: { minimum:9 }
 
 
- ############# customize fields###############"" 
- def generate_password_and_email_for_student
-    if self.role == "student"
-      self.email = "#{self.contact}+generate@ln.com"
-      self.password = "#{self.matricule}" 
-    end
+ ############# customize fields###############
+  def custom_slug
+   
+      self.email = "#{self.matricule}+generate@gmail.com"
+      self.password = "#{self.contact}"
+    
   end
-
 
   
   def full_name
     self.full_name = "#{self.first_name} #{self.last_name}"
   end
+
   def custom_slug
-    self.slug = "#{self.full_name} from #{self.city}" 
+   "#{self.full_name} from #{self.school_name}"
   end
 
      ################## SLUG ###############
@@ -44,7 +43,7 @@ class User < ApplicationRecord
     friendly_id :custom_slug, use: :slugged
 
   def should_generate_new_friendly_id?
-    custom_slug_changed? || super
+    full_name_changed?
   end
 
   ################  SIGN IN PHONE NUMBR OR EMAIL  ###########################
@@ -57,17 +56,16 @@ ROLE_NAME   = ["Choisissez votre Role", "City manager", "Marketing", "Head of Ci
 
 
 def logged
-  @logged || self.contact || self.email
+  @logged || self.matricule || self.email
 end
 
 def self.find_for_database_authentication(warden_conditions)
   conditions = warden_conditions.dup
   if logged = conditions.delete(:logged)
-    where(conditions.to_h).where(["lower(contact) = :value OR lower(email) = :value", { :value => logged }]).first
-  elsif conditions.has_key?(:contact) || conditions.has_key?(:email)
+    where(conditions.to_h).where(["lower(matricule) = :value OR lower(email) = :value", { :value => logged }]).first
+  elsif conditions.has_key?(:matricule) || conditions.has_key?(:email)
     where(conditions.to_h).first
   end
 end
-
 
 end
